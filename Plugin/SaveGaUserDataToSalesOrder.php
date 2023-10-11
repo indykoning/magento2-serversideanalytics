@@ -66,8 +66,8 @@ class SaveGaUserDataToSalesOrder
             ->addFieldToFilter('quote_id', $order->getQuoteId())
             ->getFirstItem();
 
-        $gaUserId = $this->getUserIdFromCookie() ?? $elgentosSalesOrderData->getGaUserId();
-        $gaSessionId = $this->getSessionIdFromCookie() ?? $elgentosSalesOrderData->getSessionId();
+        $gaUserId = $this->getUserIdFromCookie() ?: $elgentosSalesOrderData->getGaUserId();
+        $gaSessionId = $this->getSessionIdFromCookie() ?: $elgentosSalesOrderData->getSessionId();
 
         if ($gaUserId === null) {
             $gaCookieUserId = random_int((int)1E8, (int)1E9);
