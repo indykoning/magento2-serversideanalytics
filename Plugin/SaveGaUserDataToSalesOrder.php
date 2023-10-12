@@ -67,7 +67,7 @@ class SaveGaUserDataToSalesOrder
             ->getFirstItem();
 
         $gaUserId = $this->getUserIdFromCookie() ?: $elgentosSalesOrderData->getGaUserId();
-        $gaSessionId = $this->getSessionIdFromCookie() ?: $elgentosSalesOrderData->getSessionId();
+        $gaSessionId = $this->getSessionIdFromCookie() ?: $elgentosSalesOrderData->getGaSessionId();
 
         if ($gaUserId === null) {
             $gaCookieUserId = random_int((int)1E8, (int)1E9);
